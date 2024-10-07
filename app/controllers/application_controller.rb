@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
       :last_name,
       :user_name,
       :image_url,
-      :email_address,
       :address_1,
       :address_2,
       :town_or_city,
