@@ -4,7 +4,7 @@ class Vehicle < ApplicationRecord
 
   validates :make, presence: true
   validates :model, presence: true
-  validates :year_of_manufacture, presence: true,
+  validates :year_of_manufacture, presence: true
   validates :description, presence: true
   validates :mot_certificate, presence: true
   validates :tax_details, presence: true
