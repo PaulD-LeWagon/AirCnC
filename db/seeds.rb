@@ -1,5 +1,14 @@
 require "faker"
 
+# Destroy any db objects
+Rental.destroy_all
+Vehicle.destroy_all
+User.destroy_all
+
+users = []
+vehicles = []
+one_in_three = [true, false, false]
+
 10.times do |i|
   fname = Faker::Name.first_name
   lname = Faker::Name.last_name
@@ -36,6 +45,23 @@ require "faker"
       })
       vehicle.user = user
       vehicle.save!
+      vehicles << vehicle
     end
+    users << user if one_in_three.sample
   end
+end
+
+users.each do |customer|
+  start_offset = rand(0..31)
+  end_offset = rand(0..31)
+  the_vehicle = vehicles.sample
+  next if customer == the_vehicle.user
+  Rental.create({
+    user: customer,
+    vehicle: the_vehicle,
+    hire_start_date: Date.today + start_offset,
+    hire_end_date: Date.today + (start_offset + end_offset),
+    duration: end_offset,
+    charge: rand(50.0..250.0).round(2),
+  })
 end
