@@ -2,30 +2,33 @@ class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-      @vehicles = Vehicle.all
+    @vehicles = Vehicle.all
   end
 
-    def new
-      @vehicle = Vehicle.new
-    end
+  def show
+    @vehicle = Vehicle.find(params[:id])
+    @desc = JSON.parse(@vehicle.description)
+  end
 
-    def create
-      @vehicle = Vehicle.new(vehicle_params)
-      if @vehicle.save
-        redirect_to @vehicle, notice: 'Your vehicle was successfully created.'
-      else
-        render :new
-      end
-    end
+  def new
+    @vehicle = Vehicle.new
+  end
 
-    private
+  def create
+    user = current_user
+    @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = user
+    if @vehicle.save
+      redirect_to vehicle_path(@vehicle), notice: 'Your vehicle was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
 
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year_of_manufacture, :description, :mot_certificate, :tax_details, :number_plate, :price_per_day, :colour, :location_of_vehicle, :image_url)
   end
 
-  def show
-    @vehicle = Vehicle.find(params[:id])
-    # @desc = JSON.parse(@vehicle.description)
-  end
 end
