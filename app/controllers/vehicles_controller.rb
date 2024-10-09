@@ -3,5 +3,24 @@ class VehiclesController < ApplicationController
 
   def index
       @vehicles = Vehicle.all
-    end
   end
+
+    def new
+      @vehicle = Vehicle.new
+    end
+
+    def create
+      @vehicle = Vehicle.new(vehicle_params)
+      if @vehicle.save
+        redirect_to @vehicle, notice: 'Your vehicle was successfully created.'
+      else
+        render :new
+      end
+    end
+
+    private
+
+  def vehicle_params
+    params.require(:vehicle).permit(:make, :model, :year_of_manufacture, :description, :mot_certificate, :tax_details, :number_plate, :price_per_day, :colour, :location_of_vehicle, :image_url)
+  end
+end

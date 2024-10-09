@@ -1,0 +1,60 @@
+<%= form_with model: @vehicle, local: true do |form| %>
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_of_manufacture %>
+    <%= form.number_field :year_of_manufacture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mot_certificate %>
+    <%= form.text_area :mot_certificate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tax_details %>
+    <%= form.text_area :tax_details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_plate %>
+    <%= form.text_field :number_plate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_per_day %>
+    <%= form.number_field :price_per_day, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :colour %>
+    <%= form.text_field :colour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location_of_vehicle %>
+    <%= form.text_field :location_of_vehicle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Vehicle' %>
+  </div>
+<% end %>

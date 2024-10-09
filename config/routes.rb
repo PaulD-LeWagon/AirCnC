@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   get '/vehicles', to: 'vehicles#index'
 
+  resources :vehicles, only: [:new, :create]
+
 end
