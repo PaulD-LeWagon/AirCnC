@@ -1,12 +1,12 @@
 <div class="container">
-<h1>List of vehicles</h1>
-<div class="cards">
-<%@vehicles.each do |vehicle| %>
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= vehicle.image_url %>)">
-  <h2><%= vehicle.make %> <%= vehicle.model %></h2>
-</div>
-
-<% end %>
-</div>
+  <h1>List of vehicles</h1>
+  <div class="cards">
+    <%@vehicles.each do |vehicle| %>
+      <%= link_to vehicle_path(vehicle) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= vehicle.image_url %>)">
+          <h2><%= vehicle.make %> <%= vehicle.model %></h2>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
