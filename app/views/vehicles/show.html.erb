@@ -1,1 +1,38 @@
-<h1>Show page for vehicles</h1>
+<div class="container">
+
+  <div class="card mx-auto my-5" style="width: 80%;">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h3 class="card-title"><%= @vehicle.make %> <%= @vehicle.model %> <small class="lead">from £<%= sprintf("%.2f", @vehicle.price_per_day) %> a day</small></h3>
+
+      <a href="#" class="btn btn-primary">Hire Me!?</a>
+
+    </div>
+    <img src="<%= @vehicle.image_url %>" class="card-img-top" alt="<%= @vehicle.make %> <%= @vehicle.model %>">
+    <div class="card-body">
+      <h3 class="card-title"><%= @vehicle.make %> <%= @vehicle.model %></h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Hire @ £<%= sprintf("%.2f", @vehicle.price_per_day) %> per day</li>
+        <li class="list-group-item">Year: <%= @vehicle.year_of_manufacture %></li>
+        <li class="list-group-item">Colour: <%= @vehicle.colour %></li>
+        <li class="list-group-item"><%= @vehicle.mot_certificate %></li>
+        <li class="list-group-item"><%= @vehicle.tax_details %></li>
+        <li class="list-group-item">
+          <h5 class="my-2">Full Specs</h5>
+          <ul>
+          <% @desc.each do |item| %>
+            <li class="list-group-item"><%= item %></li>
+          <% end %>
+          </ul>
+        </li>
+      </ul>
+
+      <hr>
+
+      <div class="d-flex justify-content-end">
+        <a href="#" class="btn btn-primary">Hire Me!?</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
