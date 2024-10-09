@@ -23,4 +23,9 @@ class VehiclesController < ApplicationController
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year_of_manufacture, :description, :mot_certificate, :tax_details, :number_plate, :price_per_day, :colour, :location_of_vehicle, :image_url)
   end
+
+  def show
+    @vehicle = Vehicle.find(params[:id])
+    # @desc = JSON.parse(@vehicle.description)
+  end
 end
