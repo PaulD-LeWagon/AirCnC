@@ -11,7 +11,10 @@
 @import "components/index";
 @import "pages/index";
 
-
+.devise-signup-links a {
+  color: $gray;
+  text-decoration: none;
+}
 .btn {
   color: white;
   font-weight: 900;
