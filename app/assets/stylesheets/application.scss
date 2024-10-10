@@ -11,6 +11,9 @@
 @import "components/index";
 @import "pages/index";
 
+
+
+
 .card {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
@@ -18,4 +21,28 @@
   font-size: small;
   font-weight: 200;
   font-style: italic;
+}
+
+.jumbotron {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+
+  .container .banner {
+    height: 90dvh;
+    color: white;
+    font-weight: 900;
+
+    h1 {
+      text-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      .btn {
+        margin-top: 35px;
+        color: inherit;
+      }
+    }
+  }
+}
+
+footer {
+  height: 300px;
 }
