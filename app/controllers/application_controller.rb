@@ -7,15 +7,9 @@ class ApplicationController < ActionController::Base
     additional_keys = [
       :first_name,
       :last_name,
-      :user_name,
       :image_url,
-      :address_1,
-      :address_2,
-      :town_or_city,
-      :county,
-      :postcode,
+      :address,
       :phone_number,
-      :mobile_number,
     ]
     devise_parameter_sanitizer.permit(:sign_up, keys: additional_keys)
     # For additional in app/views/devise/registrations/edit.html.erb

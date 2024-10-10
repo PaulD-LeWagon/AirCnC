@@ -2,28 +2,27 @@
 
   <div class="card mx-auto my-5" style="width: 80%;">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <h3 class="card-title"><%= @vehicle.make %> <%= @vehicle.model %> <small class="lead">from £<%= sprintf("%.2f", @vehicle.price_per_day) %> a day</small></h3>
-
-      <a href="#" class="btn btn-primary">Hire Me!?</a>
-
+      <h3 class="card-title">
+        <%= @vehicle.make %> <%= @vehicle.model %>
+        <small class="lead">from £<%= sprintf("%.2f", @vehicle.price_per_day) %> a day</small>
+      </h3>
     </div>
     <img src="<%= @vehicle.image_url %>" class="card-img-top" alt="<%= @vehicle.make %> <%= @vehicle.model %>">
     <div class="card-body">
       <h3 class="card-title"><%= @vehicle.make %> <%= @vehicle.model %></h3>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Hire @ £<%= sprintf("%.2f", @vehicle.price_per_day) %> per day</li>
-        <li class="list-group-item">Year: <%= @vehicle.year_of_manufacture %></li>
+        <li class="list-group-item">Year: <%= @vehicle.year %></li>
         <li class="list-group-item">Colour: <%= @vehicle.colour %></li>
-        <li class="list-group-item"><%= @vehicle.mot_certificate %></li>
-        <li class="list-group-item"><%= @vehicle.tax_details %></li>
         <li class="list-group-item">
-        <li class="list-group-item"><p class=lead"><%= @vehicle.description %></p></li>
+          <p class=lead"><%= @vehicle.description %></p>
+        </li>
       </ul>
 
       <hr>
 
       <div class="d-flex justify-content-end">
-        <a href="#" class="btn btn-primary">Hire Me!?</a>
+        <a href="#" class="btn btn-success btn-lg">Hire Me!?</a>
       </div>
 
     </div>
