@@ -4,7 +4,6 @@
     <div class="col-12 col-sm-6">
     <h2 class="my-5 display-3">Sign Up</h2>
       <div class="p-4 border rounded">
-<h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -28,8 +27,8 @@
     <%= f.input :phone_number %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions d-flex">
+    <%= f.button :submit, "Sign up", class: "btn btn-success" %>
   </div>
 <% end %>
 
