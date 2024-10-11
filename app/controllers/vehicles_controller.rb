@@ -12,6 +12,9 @@ class VehiclesController < ApplicationController
         @rental = current_user.rentals.where(vehicle_id: params[:id]).first
         # Okay got a booking hide form show cancel/delete button
         @show_cancel_button = true
+        @show_hire_form = false
+      elsif current_user == @vehicle.user
+        @show_hire_form = false
       else
         # Signed in but no booking so show form
         @show_hire_form = true
@@ -40,6 +43,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:make, :model, :year_of_manufacture, :description, :mot_certificate, :tax_details, :number_plate, :price_per_day, :colour, :location_of_vehicle, :image_url)
+    params.require(:vehicle).permit(:make, :model, :year, :description, :price_per_day, :colour, :location, :image_url)
   end
 end

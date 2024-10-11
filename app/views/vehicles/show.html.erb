@@ -54,7 +54,7 @@
 
             <%= link_to 'Delete Booking?', rental_path(@rental), class: "btn btn-success text-nowrap align-self-end", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
-          <% else %>
+          <% elsif !user_signed_in? %>
 
             <%= link_to 'Hire Me?', new_user_session_path, class: "btn btn-success text-nowrap align-self-end" %>
 
