@@ -11,6 +11,19 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.navbar, h1, h2, h3, h4, h5, h6 {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .devise-signup-links a {
   color: $gray;
   text-decoration: none;
@@ -37,7 +50,7 @@
   background-size: cover;
 
   .container .banner {
-    height: 90dvh;
+    height: calc(100vh - 66px);
     color: white;
     font-weight: 900;
 
