@@ -21,9 +21,15 @@
 
       <hr>
 
+      <% if @hide_hire_button %>
+
+      <!-- Cancel Booking Button Here. -->
+
+      <% else %>
       <div class="d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-lg">Hire Me!?</a>
+        <%= link_to "Hire Me?", new_vehicle_rental_path(@vehicle), class: "btn btn-success btn-lg" %>
       </div>
+      <% end %>
 
     </div>
   </div>

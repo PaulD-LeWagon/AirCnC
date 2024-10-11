@@ -1,3 +1,5 @@
+// Datepicker
+@import "jquery-ui.css";
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,6 +13,10 @@
 @import "components/index";
 @import "pages/index";
 
+
+form #charge::before {
+  content: "£";
+}
 
 .btn {
   color: white;
@@ -26,6 +32,10 @@
   font-size: small;
   font-weight: 200;
   font-style: italic;
+}
+
+.aircnc-form {
+  font-size: larger;
 }
 
 .jumbotron {

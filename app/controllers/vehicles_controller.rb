@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @hide_hire_button = current_user.rentals.where(vehicle_id: params[:id]).present?
     @vehicle = Vehicle.find(params[:id])
   end
 
@@ -18,7 +19,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = user
     if @vehicle.save
-      redirect_to vehicle_path(@vehicle), notice: 'Your vehicle was successfully created.'
+      redirect_to vehicle_path(@vehicle), notice: "Your vehicle was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,5 +30,4 @@ class VehiclesController < ApplicationController
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year_of_manufacture, :description, :mot_certificate, :tax_details, :number_plate, :price_per_day, :colour, :location_of_vehicle, :image_url)
   end
-
 end
