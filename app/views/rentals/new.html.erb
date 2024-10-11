@@ -1,32 +1,7 @@
-<div class="container">
+<div class="container col-9">
 
-  <h1 class="display-3 my-5">Hire <%= "#{@vehicle.make} #{@vehicle.model}?" %></h1>
+  <h1 class="display-3 my-5">Hire the <%= "#{@vehicle.make} #{@vehicle.model}?" %></h1>
 
-  <%= simple_form_for [@vehicle, @rental], html: { id: "hire-form", class: "aircnc-form w-50 border p-5 rounded-5 shadow-sm" } do |f| %>
-
-    <%= f.error_notification %>
-
-    <div class="form-inputs" data-controller="datepicker" data-datepicker-charge-value="<%= @vehicle.price_per_day.to_f %>">
-
-      <div id="vehicle-id" data-vehicle-id="<%= @vehicle.id %>"></div>
-
-      <%= f.input :hire_start_date,
-                  as: :datepicker,
-                  required: true,
-                  input_html: { id: "dp-start-date", class: "form-control" } %>
-      <%= f.input :hire_end_date,
-                  as: :datepicker,
-                  required: true,
-                  input_html: { id: "dp-end-date", class: "form-control" } %>
-
-      <%= f.input :charge, as: :string, readonly: true, input_html: { id: "charge", class: "form-control" } %>
-
-    </div>
-
-    <div class="form-actions d-flex justify-content-end">
-      <%= f.button :submit, "Sign up", id: "form-submit", class: "btn btn-success btn-lg" %>
-    </div>
-
-  <% end %>
+  <%= render partial: 'shared/rental_form', locals: { vehicle: @vehicle, rental: @rental } %>
 
 </div>

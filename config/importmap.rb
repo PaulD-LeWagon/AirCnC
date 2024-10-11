@@ -11,3 +11,4 @@ pin "jquery", to: "jquery.min.js", preload: true
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 # pin "jquery-ui", to: "jquery-ui.min.js", preload: true
 pin "jquery-ui", to: "https://code.jquery.com/ui/1.13.1/jquery-ui.min.js", preload: true
+pin "sweetalert2" # @11.14.1

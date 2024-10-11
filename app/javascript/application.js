@@ -5,5 +5,6 @@ import "@popperjs/core"
 import "bootstrap"
 import "jquery"
 import "jquery_ujs"
-// import "./jquery_ui"
 import "jquery-ui"
+import Swal from 'sweetalert2';
+window.Swal = Swal;
