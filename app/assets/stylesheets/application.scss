@@ -15,6 +15,7 @@
 
 
 body {
+  background-color: $body-color;
   font-family: "Playwrite DE Grund", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -27,6 +28,9 @@ body {
   font-style: normal;
 }
 
+div.navbar.sticky-top {
+  border-bottom: 7px solid $success;
+}
 
 .text-nowrap {
   white-space: nowrap;
@@ -36,11 +40,13 @@ form #charge::before {
   content: "£";
 }
 
-
 .devise-signup-links a {
   color: $gray;
   text-decoration: none;
+  font-size: .75rem !important;
+  font-style: italic !important;
 }
+
 .btn {
   color: white;
   font-weight: 900;
@@ -58,7 +64,7 @@ form #charge::before {
 }
 
 .aircnc-form {
-  font-size: larger;
+  font-size: 0.75rem !important;
 }
 
 .jumbotron {
@@ -83,5 +89,6 @@ form #charge::before {
 }
 
 footer {
+  margin-top: 75px;
   height: 300px;
 }
