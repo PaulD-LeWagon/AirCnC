@@ -18,6 +18,10 @@ form #charge::before {
   content: "£";
 }
 
+.devise-signup-links a {
+  color: $gray;
+  text-decoration: none;
+}
 .btn {
   color: white;
   font-weight: 900;
