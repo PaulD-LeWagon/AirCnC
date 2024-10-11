@@ -74,5 +74,13 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
 gem "devise"
 gem "faker"
+gem "simple-form-datepicker", "~> 0.1.3"
+
+# Use jquery as the JavaScript librar
+gem "jquery-rails"
+
+# Use jquery-ui for pretty UI
+gem "jquery-ui-rails"

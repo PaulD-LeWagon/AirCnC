@@ -1,0 +1,26 @@
+<%= simple_form_for [vehicle, rental], html: { id: "hire-form", class: "aircnc-form mt-3 p-5 w-50 border rounded-2 shadow-sm" } do |f| %>
+
+    <%= f.error_notification %>
+
+    <div class="form-inputs" data-controller="datepicker" data-datepicker-charge-value="<%= vehicle.price_per_day.to_f %>">
+
+      <div id="vehicle-id" data-vehicle-id="<%= vehicle.id %>"></div>
+
+      <%= f.input :hire_start_date,
+                  as: :datepicker,
+                  required: true,
+                  input_html: { id: "dp-start-date", class: "form-control" } %>
+      <%= f.input :hire_end_date,
+                  as: :datepicker,
+                  required: true,
+                  input_html: { id: "dp-end-date", class: "form-control" } %>
+
+      <%= f.input :charge, as: :string, readonly: true, input_html: { id: "charge", class: "form-control" } %>
+
+    </div>
+
+    <div class="form-actions d-flex justify-content-end">
+      <%= f.button :submit, "Hire Now?", id: "form-submit", class: "btn btn-success" %>
+    </div>
+
+  <% end %>

@@ -39,7 +39,7 @@ users = [
   }),
 ]
 
-9.times do |j|
+15.times do |j|
   # search_terms = ["lambretta", "car", "vw beetle", "campervan"].sample
   v_make = Faker::Vehicle.make
   v_model = Faker::Vehicle.model(make_of_model: v_make)
@@ -48,8 +48,8 @@ users = [
     make: v_make,
     model: v_model,
     year: Faker::Vehicle.year,
-    description: Faker::Lorem.paragraph(sentence_count: rand(3..5)),
-    price_per_day: rand(50.25..250.95).round(2),
+    description: Faker::Lorem.paragraph(sentence_count: rand(10..20)),
+    price_per_day: rand(10.25..50.95).round(2),
     colour: Faker::Color.color_name.capitalize,
     location: "#{Faker::Address.city} #{Faker::Address.postcode}",
     image_url: Faker::LoremFlickr.image(size: "500x250", search_terms: search_terms),

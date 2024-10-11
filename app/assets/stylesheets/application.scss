@@ -1,3 +1,5 @@
+// Datepicker
+@import "jquery-ui.css";
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,6 +13,7 @@
 @import "components/index";
 @import "pages/index";
 
+
 body {
   font-family: "Playwrite DE Grund", cursive;
   font-optical-sizing: auto;
@@ -23,6 +26,16 @@ body {
   font-weight: 300;
   font-style: normal;
 }
+
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+form #charge::before {
+  content: "£";
+}
+
 
 .devise-signup-links a {
   color: $gray;
@@ -42,6 +55,10 @@ body {
   font-size: small;
   font-weight: 200;
   font-style: italic;
+}
+
+.aircnc-form {
+  font-size: larger;
 }
 
 .jumbotron {
