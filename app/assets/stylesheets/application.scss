@@ -14,23 +14,6 @@
 @import "pages/index";
 
 
-
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
-.urbanist-900 {
-  font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-}
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 400
-.playwrite-de-grund-100 {
-  font-family: "Playwrite DE Grund", cursive;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-}
 body {
   font-family: "Playwrite DE Grund", cursive;
   font-optical-sizing: auto;
@@ -44,6 +27,7 @@ body {
   font-style: normal;
 }
 
+
 .text-nowrap {
   white-space: nowrap;
 }
@@ -51,6 +35,7 @@ body {
 form #charge::before {
   content: "£";
 }
+
 
 .devise-signup-links a {
   color: $gray;
@@ -82,7 +67,7 @@ form #charge::before {
   background-size: cover;
 
   .container .banner {
-    height: 90dvh;
+    height: calc(100vh - 66px);
     color: white;
     font-weight: 900;
 
