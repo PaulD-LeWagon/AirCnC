@@ -2,6 +2,6 @@
 
   <h1 class="display-3 my-5">Hire the <%= "#{@vehicle.make} #{@vehicle.model}?" %></h1>
 
-  <%= render partial: 'shared/rental_form', locals: { vehicle: @vehicle, rental: @rental } %>
+  <%= render partial: 'shared/form_rental', locals: { vehicle: @vehicle, rental: @rental } %>
 
 </div>

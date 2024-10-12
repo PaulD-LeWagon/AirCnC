@@ -3,8 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import "jquery"
-import "jquery_ujs"
-import "jquery-ui"
 import Swal from 'sweetalert2';
 window.Swal = Swal;
