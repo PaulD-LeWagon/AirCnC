@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
         format.html { redirect_to vehicle_path(@vehicle), notice: "Your booking was successful!", status: :see_other }
         format.json do
           resp = {
-            status: "Success",
+            status: "success",
             data: @rental,
             errors: "",
             message: "Booking successfully created!",
@@ -28,7 +28,7 @@ class RentalsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json do
           resp = {
-            status: "Error",
+            status: "error",
             data: @rental,
             errors: @rental.errors,
             message: "Booking NOT created!",
@@ -43,7 +43,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     @vehicle = @rental.vehicle
     @rental.destroy
-    redirect_to vehicles_path(@vehicle), status: :see_other
+    redirect_to vehicle_path(@vehicle), status: :see_other
   end
 
   private

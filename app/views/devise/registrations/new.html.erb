@@ -2,38 +2,41 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6">
-    <h2 class="my-5 display-3">Sign Up</h2>
-      <div class="p-4 border rounded">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <h2 class="my-5 display-3">Sign Up.</h2>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :image_url %>
-    <%= f.input :address %>
-    <%= f.input :phone_number %>
-  </div>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "shadow border rounded-3 p-4" }) do |f| %>
 
-  <div class="form-actions d-flex justify-content-end">
-    <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-  </div>
-<% end %>
+        <%= f.error_notification %>
 
-<div class="devise-signup-links"><%= render "devise/shared/links" %></div>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :image_url %>
+          <%= f.input :address %>
+          <%= f.input :phone_number %>
+        </div>
+
+        <div class="form-actions d-flex justify-content-end">
+          <%= f.button :submit, "Sign up", class: "btn btn-success" %>
+        </div>
+      <% end %>
+
+    <div class="devise-signup-links fs-9 font-lighter font-italic mt-3">
+      <%= render "devise/shared/links" %>
+    </div>
+
     </div>
   </div>
 </div>

@@ -1,60 +1,49 @@
 import { Controller } from "@hotwired/stimulus"
 import Swal from "sweetalert2";
-
+const log = something => console.log(typeof something, something);
 export default class extends Controller {
   static values = { charge: Number }
+
+  static targets = ["form", "startDate", "endDate", "charge"]
 
   connect() {
     this.startDate = -1;
     this.endDate = -1;
-    $("input.datepicker").datepicker({
-      dateFormat: "yy/mm/dd"
-    });
-    $("#dp-start-date").change((e) => {
-      this.startDate = e.target.value;
-      if (this.#calculateDate()) {
-        this.#calculateCharge();
-      }
-    });
-    $("#dp-end-date").change((e) => {
-      this.endDate = e.target.value;
-      if (this.#calculateDate()) {
-        this.#calculateCharge();
-      }
-    });
-    $("#hire-form").submit((e) => {
-      e.preventDefault();
-      this.#ajaxUp(e.target);
-    });
   };
-  #ajaxUp(form) {
-    const requestDetails = {
-      method: "POST",
-      headers: { "Accept": "application/json", "Content-Type": "application/json"},
-      body: JSON.stringify({ "authenticity_token": $('#hire-form input[name=authenticity_token]').val(), "rental": { "hire_start_date": this.startDate, "hire_end_date": this.endDate, "charge": parseFloat($('#charge').val().substr(1)) }, "vehicle_id": $('#vehicle-id').data('vehicleId') })
+  onDPChange(e) {
+    this.startDate = this.startDateTarget.value;
+    this.endDate = this.endDateTarget.value;
+    if (this.#calculateDate()) {
+      this.#calculateCharge();
     }
-    // console.log(requestDetails.body);
-    fetch(form.action, requestDetails)
-    .then(response => response.json())
-    .then(data => {
-      // Icons: warning, error, success, info, and question
-      Swal.fire({
-        title: data.status,
-        text: data.message,
-        icon: data.status.toLowerCase(),
-        confirmButtonText: 'Cool'
-      });
-      console.log(data);
-    });
+  };
+  onSubmit(e) {
+    e.preventDefault();
+
+    fetch(this.formTarget.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(this.formTarget)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        // Icons: warning, error, success, info, and question
+        Swal.fire({
+          title: this.#capitalise(data.status),
+          text: data.message,
+          icon: data.status,
+          confirmButtonText: 'Cool',
+          customClass: {
+            confirmButton: `btn btn-${data.status} btn-lg`,
+          }
+        });
+        console.log(data);
+      })
 
   };
-  #calculateCharge() {
-    let the_cost = (this.numberOfDays * this.chargeValue).toFixed(2)
-    $('#charge').val(`£${the_cost}`);
-  };
-  #calculateDate() {this.startDate
+
+  #calculateDate() {
     this.numberOfDays = 0;
-    // console.log(this.startDate, this.endDate);
     if (this.startDate <= 0 || this.endDate <= 0) {
       return false;
     } else {
@@ -63,9 +52,6 @@ export default class extends Controller {
       const td = date;
       const sd = new Date(this.startDate);
       const ed = new Date(this.endDate);
-      // console.log(new Date());
-      // console.log(sd);
-      // console.log(ed);
       if (sd < td || sd >= ed) {
         return false;
       } else {
@@ -75,7 +61,13 @@ export default class extends Controller {
     }
   };
 
-  #dateToEpoch2(thedate) {
-    return thedate.setHours(0,0,0,0);
+  #calculateCharge() {
+    this.chargeTarget.value = `£${(this.numberOfDays * this.chargeValue).toFixed(2)}`;
   };
+
+  #capitalise(strOfWords) {
+    const words = strOfWords.split(" ");
+    return words.map((word) => { return word[0].toUpperCase() + word.substring(1); }).join(" ");
+  };
+
 }
